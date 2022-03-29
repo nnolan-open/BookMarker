@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">  
+<script>
+let data1 = {
+   "O365 Mail":"https://outlook.office.com/mail/inbox",
+   "O365 Calendar":"https://outlook.office.com/calendar/view/month",
+   "My GitHub":"https://github.com/nnolan-open",
+   "Comcast Email":"https://connect.xfinity.com/appsuite/",
+   "Youtube":"https://youtube.com/",
+   "distrowatch":"https://distrowatch.com",
+};
+
+</script> 
+
+<style>
+.grid_container {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px;
+    background-color: green;
+    padding: 10px;
+}
+.small_btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+.big_btn {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+#wide {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 40vh;
+    #width: 80%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href = "avc_label_style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id = "container">
+    <div id = "wide">
+      <div class = "grid-container">
+       <center><h1>My Bookmarks</h1></center>
+        <div class="grid-item" id="MainButtons">
+
+
+    <!-- <button type="button" class="big_btn" ONCLCK="window.open('magnet:?xt=urn:ssh:10.94.32.18')">Magnet!</button>
+    <button type="button" class="big_btn"><a href="file:////home/nnolan/listings_to_csv.csv"/>Download</button>
+    <button type="button" class="big_btn"><a href="ssh://10.94.32.18"/>ssh</button> -->
+         <!-- cool, can manually add a button to a tag that JS isappending to-->
+          <button type = "button" ONCLICK="window.open('http://google.com')" id = "b5" class = "big_btn">Google</button>
+     <script>  
+      let list = document.getElementById("MainButtons");
+      function* entries(obj) {
+        for (let key of Object.keys(obj)) {
+          yield [key, obj[key]];
+        }  
+      }
+      for (let [key, val] of entries(data1)) {
+        let bt = document.createElement("button");
+        bt.className= "big_btn";
+        // this onClick stuff in nonsense. If anyone who cares about JS would mind shooting me an email on how to NOT get them to all just trigger at once, please shoot me an email
+        //bt.innerText = key;
+        //bt.onClick = "window.open(val)";
+        bt.innerHTML = "<a href=\"" + val + "\" target=\"_blank\">" + key + "</a>"
+        //bt.onClick = window.location.href=val;
+        list.appendChild(bt);
+      };
+     </script>
+ 
+
+       </div>
+     </div>
+    </div>
+  </div>
+</body>
+</html>
+
